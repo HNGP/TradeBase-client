@@ -1,0 +1,31 @@
+ul{
+    list-style: none;
+}
+.chart{
+    width: 100%;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    box-shadow:  11px 11px 22px #1f2025, 
+                -11px -11px 22px #2d3037;
+    transition: 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.chart:hover{
+    transform: scale(1.1, 1.1);
+    box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5);
+    box-shadow:  21px 21px 42px #1f2025, 
+                -21px -21px 42px #2d3037;
+
+}
+
+@media (max-width: 720px){
+
+}
+
+.textGroup{
+    margin: 0 auto;
+}
+
