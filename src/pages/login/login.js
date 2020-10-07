@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import { useHistory } from "react-router-dom";
 import UserContext from '../../context/userContext'
 import ErrorNotice from "../../misc/errorNotice";
+import './login.css'
 
 export default function Login() {
     const [email, setEmail] = useState();
@@ -37,18 +38,22 @@ export default function Login() {
         
        
     return (
-        <div className="content">
-            <h2>Login</h2>
+        <div className="loginCard">
+        
+       
+            <h1>Login</h1>
             {error && (
                 <ErrorNotice message={error} clearError={() => setError(undefined)} />
              )}
             <form>
-                <label htmlFor="register-email">Email</label>
+                
                 <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
-                <label htmlFor="register-password">Password</label>
+                
                 <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
-                <input type="submit" value="Submit" onClick={submit}/>
+                <input type="submit" class="button" value="Submit" onClick={submit}/>
             </form>
         </div>
+       
+       
     )
 }

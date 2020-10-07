@@ -6,6 +6,8 @@ import Register from "./pages/register/register"
 import Landing from "./pages/landing/landing"
 import Stockpage from "./pages/stockPage/stockPage"
 import UserContext from './context/userContext'
+import './index.css'
+
 
 const App = () => {
   
@@ -42,18 +44,26 @@ const App = () => {
   }, [])
 
   return (
-    <div className="Content">
+    <div className="Content"> 
+    
       <BrowserRouter>
         <UserContext.Provider value={{userData, setUserData}}>
-          <Header/>
-          <div className="container">
+        <div className="Nav"><Header/></div> 
+        <div className="container">
+       
             <Switch>
+          
               <Route exact path="/" component={Landing} />
               <Route path="/stockPage" component={Stockpage} />
+              
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
+            
             </Switch>
           </div>
+
+        
+         
         </UserContext.Provider>
       </BrowserRouter>
     </div>

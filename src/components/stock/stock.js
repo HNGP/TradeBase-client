@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import Graph from "../../components/graph/graph"
 import Plot from 'react-plotly.js';
 import './stock.css'
-
+import searchIcon from './search.png'
 
 const Stock = () => {
     const [stock, setStock] = useState({
@@ -36,12 +36,14 @@ const Stock = () => {
         let companyInfo;
         let exchange;
 
+   
         fetch(API_CALL)
             .then(response => response.json())
             .then(data => {
                 for (var key in data['Time Series (Daily)']) {
                     stockX.push(key);
                     stockY.push(data['Time Series (Daily)'][key]['4. close']);
+                  
                 }
                 fetch(API_CALL1)
                     .then(response => response.json())
@@ -62,12 +64,23 @@ const Stock = () => {
     }
     return (
         <div className="chart">
-            <div className="textGroup">
-            <input type="text" placeholder="Enter the stock Symbol" onChange={(e) => setSearch({sym: e.target.value})}></input>
-            <button onClick={Search}>Search</button>
+            <div className="View">
+            <div className="SubView">
+            <input type="text" placeholder="Search for a stock" onChange={(e) => setSearch({sym: e.target.value})}></input>
+            <button onClick={Search}><img src={searchIcon} width="30px"></img></button>
+            </div>
+            <div className="SubView1">
+            
+            <div className="textGroup2">
             <h1>{stock.symbol}</h1>
             <p>{stock.company}</p>
             <p>{stock.exc}</p>
+            </div>
+
+                <h1 className="Price"> {stock.stockChartY[0]}</h1>
+        
+            </div>
+
             </div>
 
             <Plot useResizeHandler={true}
@@ -88,27 +101,27 @@ const Stock = () => {
               
             ]}
             layout={{
-                plot_bgcolor:"#26282E",
-                paper_bgcolor:"#26282E",
+                plot_bgcolor:"#ffffff",
+                paper_bgcolor:"#ffffff",
                 autosize: true,
                 xaxis:{
-                    zerolinecolor: '#ffffff',
-                    linecolor: '#ffffff',
+                    zerolinecolor: '#000000',
+                    linecolor: '#000000',
                     tickfont: {
                         family: 'Helvetica Neue',
                         size: 14,
-                        color: '#ffffff'
+                        color: '#000000'
                     }
                     
                 },
                 yaxis:{
                     autorange: true,
-                    zerolinecolor: '#ffffff',
-                    linecolor: '#ffffff',
+                    zerolinecolor: '#000000',
+                    linecolor: '#000000',
                     tickfont: {
                         family: 'Helvetica Neue',
                         size: 14,
-                        color: '#ffffff'
+                        color: '#000000'
                     }
                 }
             }}

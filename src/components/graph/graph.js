@@ -22,8 +22,8 @@ export default function graph(props) {
               
             ]}
             layout={{
-                plot_bgcolor:"#26282E",
-                paper_bgcolor:"#26282E",
+                plot_bgcolor:"#ffffff",
+                paper_bgcolor:"#ffffff",
                 autosize: true,
                 xaxis:{
                     zerolinecolor: '#ffffff',

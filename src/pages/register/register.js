@@ -52,17 +52,17 @@ export default function Register() {
     }
 
     return (
-        <div className="content">
+        <div className="loginCard">
             <h2>Register</h2>
             {error && <ErrorNotice message={error} clearError={()=> setError(undefined)} />}
             <form className="form" onSubmit={submit}>
-                <label htmlFor="register-name">Name</label>
+                
                 <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)}/>
-                <label htmlFor="register-email">Email</label>
+                
                 <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
-                <label htmlFor="register-password">Password</label>
+               
                 <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
-                <input type="submit" value="Submit" />
+                <input type="submit" class="button" value="Submit" />
             </form>
         </div>
     )
