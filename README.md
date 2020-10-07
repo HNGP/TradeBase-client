@@ -1,3 +1,5 @@
+# Tradebase
+
 A react based web-app to watch stocks.
 Made using create-react-app.
 (Under development)
