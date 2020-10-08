@@ -57,11 +57,11 @@ export default function Register() {
             {error && <ErrorNotice message={error} clearError={()=> setError(undefined)} />}
             <form className="form" onSubmit={submit}>
                 
-                <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)}/>
+                <input type="text" class="authInput" placeholder="Name" onChange={(e) => setName(e.target.value)}/>
                 
-                <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
+                <input type="email" class="authInput" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
                
-                <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+                <input type="password" class="authInput" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
                 <input type="submit" class="button" value="Submit" />
             </form>
         </div>

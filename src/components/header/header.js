@@ -50,7 +50,7 @@ const Header = () => {
           <a onClick={stock}>About</a>
           <a onClick={logout}>Logout</a>
           </div>):(
-        <div className="AuthAr">
+        <div className="HeaderGroup2">
           <a onClick={register}>Register</a>
           <a onClick={login}>Login</a>
         </div>

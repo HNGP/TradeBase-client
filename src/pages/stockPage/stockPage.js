@@ -12,12 +12,6 @@ export default function Stockpage() {
         <div className="Content">
             <div className="jumbotron">
                 <Stock/>
-                <div className="CardGroup">
-                    <Card/>
-                    <Card/>
-                    <Card/>
-                    <Card/>
-                </div>
             </div>
         </div> 
     ) : (

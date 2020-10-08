@@ -1,6 +1,6 @@
 .Card{
     width: 400px;
-    height: 200px;
+    height: 300px;
     border-radius: 20px;
     position: relative;
     overflow: hidden;
@@ -8,6 +8,7 @@
     box-shadow:  11px 11px 22px #d9d9d9, 
                 -11px -11px 22px #ffffff;
     transition: 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+    background: #0076CE
 }
 
 .Card:hover{

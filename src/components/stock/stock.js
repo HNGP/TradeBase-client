@@ -4,6 +4,8 @@ import Graph from "../../components/graph/graph"
 import Plot from 'react-plotly.js';
 import './stock.css'
 import searchIcon from './search.png'
+import up from './up.png'
+import down from './down.png'
 
 const Stock = () => {
     const [stock, setStock] = useState({
@@ -12,7 +14,9 @@ const Stock = () => {
         symbol: '',
         company: '',
         exc: '',
-        curr: ''
+        diff: '',
+        curr: '',
+        diffperc: ''
     })
     const [search, setSearch] = useState({
         sym: undefined
@@ -32,11 +36,14 @@ const Stock = () => {
         
         let stockX = [];
         let stockY = [];
-
+        let diff;
+        let diffperc;
+        let price;
         let companyInfo;
         let exchange;
+        let col;
+        let icon;
 
-   
         fetch(API_CALL)
             .then(response => response.json())
             .then(data => {
@@ -55,6 +62,11 @@ const Stock = () => {
                             company: data['Name'],
                             exc: data['Exchange'],
                             curr: data['Currency'],
+                            price: parseFloat(stockY[0]).toFixed(2),
+                            diff: (stockY[0]-stockY[1]).toFixed(2),
+                            diffperc: Math.abs((((stockY[0]-stockY[1])/stockY[1])*100).toFixed(2)),
+                            col: stockY[0]-stockY[1]>=0 ? "green" : "red",
+                            icon: stockY[0]-stockY[1]>=0 ? up : down,
                         });
                 
                 })
@@ -66,7 +78,7 @@ const Stock = () => {
         <div className="chart">
             <div className="View">
             <div className="SubView">
-            <input type="text" placeholder="Search for a stock" onChange={(e) => setSearch({sym: e.target.value})}></input>
+            <input class="search" type="text" placeholder="Search for a stock" onChange={(e) => setSearch({sym: e.target.value})}></input>
             <button onClick={Search}><img src={searchIcon} width="30px"></img></button>
             </div>
             <div className="SubView1">
@@ -76,9 +88,12 @@ const Stock = () => {
             <p>{stock.company}</p>
             <p>{stock.exc}</p>
             </div>
-
-                <h1 className="Price"> {stock.stockChartY[0]}</h1>
-        
+            <div className="PriceGroup">
+                <h1 className="Price"> {stock.price} {stock.curr}</h1>
+                <div className="PriceGroup2">
+                <h2 style={{color: stock.col}}>{stock.diff} ({stock.diffperc}%) <img src={stock.icon} width="30px"></img></h2> 
+                </div>
+                </div>
             </div>
 
             </div>
@@ -94,7 +109,7 @@ const Stock = () => {
                 marker: {gradient: { type:"vertical",
                                     color: "white",
                                     },
-                         color: "green"
+                         color: stock.col
                                 },
                         
               }

@@ -3,8 +3,10 @@ body{
   margin: 0;
   font-size: 20px;
   -webkit-font-smoothing: antialiased;
-  line-height: 1.2;
+  line-height: 1;
   color: #1552F0;
   background-color: white
 
 }
+
+
