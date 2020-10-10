@@ -15,9 +15,7 @@ export default function Stockpage() {
             </div>
         </div> 
     ) : (
-        <div>
             <h3>Please Login/Register to view</h3>
-        </div>  
     )}
     </div>
     );

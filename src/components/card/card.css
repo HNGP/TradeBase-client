@@ -8,7 +8,7 @@
     box-shadow:  11px 11px 22px #d9d9d9, 
                 -11px -11px 22px #ffffff;
     transition: 0.8s cubic-bezier(0.23, 1, 0.320, 1);
-    background: #0076CE
+    background: #ffffff
 }
 
 .Card:hover{
@@ -19,6 +19,26 @@
                 -21px -21px 42px #ffffff;
 
 }
+
+.Card h1{
+    font-size: 100px;
+ 
+    padding-left: 30px;
+}
+
+.Card h2{
+    font-size: 40px;
+    margin-top: -70px;
+    padding-left: 40px;
+}
+
+.Card h3{
+    margin-top: -40px;
+    padding-left: 40px;
+    color: red;
+}
+
+
 
 @media (max-width: 720px){
     .Card{

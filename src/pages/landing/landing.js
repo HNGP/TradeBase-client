@@ -8,12 +8,11 @@ export default function Landing() {
 
         <div class="CardGroupMain">
             
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
+            <Card title="TSLA" text="160.54USD" text2="-0.32(2.3%)"/>
+            <Card title="AAPL" text="160.54USD" text2="-0.32(2.3%)"/>
+            <Card title="MSFT" text="160.54USD" text2="-0.32(2.3%)"/>
+            <Card title="NFLX" text="160.54USD" text2="-0.32(2.3%)"/>
+            
         </div>
         </div>
     )
