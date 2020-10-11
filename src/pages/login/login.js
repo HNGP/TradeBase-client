@@ -30,9 +30,11 @@ export default function Login() {
                 })
                 localStorage.setItem("auth-token", res.token);
                 history.push("/");
+            } else {
+                res.msg && setError(res.msg);
             }
         } catch(err) {
-            err.response.msg && setError(err.response.msg);
+            err.message && setError(err.message);
         }
     }
         

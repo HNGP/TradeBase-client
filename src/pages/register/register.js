@@ -42,10 +42,12 @@ export default function Register() {
                     })
                     localStorage.setItem("auth-token", res.token);
                     history.push("/");
+                } else {
+                    res.msg && setError(res.msg);
                 }
             }
         } catch(err) {
-            err.response.data.msg && setError(err.response.data.msg);
+            err.message && setError(err.message);
         }
        
        

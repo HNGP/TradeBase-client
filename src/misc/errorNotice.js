@@ -1,4 +1,5 @@
 import React from 'react'
+import './errorNotice.css'
 
 export default function errorNotice(props) {
     return (

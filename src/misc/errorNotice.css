@@ -1,0 +1,26 @@
+.error-notice {
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border : 1px solid #e07c7c;
+    background-color: #f8d6d6;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 400px;
+    min-width: 400px;
+}
+
+.error-notice span {
+    color: #df4343;
+}
+
+.error-notice button {
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #df4343;
+    color: #ffffff;
+}
+

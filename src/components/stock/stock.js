@@ -16,7 +16,8 @@ const Stock = () => {
         exc: '',
         diff: '',
         curr: '',
-        diffperc: ''
+        diffperc: '',
+        sign: ''
     })
     const [search, setSearch] = useState({
         sym: undefined
@@ -63,7 +64,8 @@ const Stock = () => {
                             exc: data['Exchange'],
                             curr: data['Currency'],
                             price: parseFloat(stockY[0]).toFixed(2),
-                            diff: (stockY[0]-stockY[1]).toFixed(2),
+                            diff: Math.abs(stockY[0]-stockY[1]).toFixed(2),
+                            sign: stockY[0]-stockY[1]>0 ? '+' : '-',
                             diffperc: Math.abs((((stockY[0]-stockY[1])/stockY[1])*100).toFixed(2)),
                             col: stockY[0]-stockY[1]>=0 ? "green" : "red",
                             icon: stockY[0]-stockY[1]>=0 ? up : down,
@@ -91,7 +93,7 @@ const Stock = () => {
             <div className="PriceGroup">
                 <h1 className="Price"> {stock.price} {stock.curr}</h1>
                 <div className="PriceGroup2">
-                <h2 style={{color: stock.col}}>{stock.diff} ({stock.diffperc}%) <img src={stock.icon} width="30px"></img></h2> 
+                <h2 style={{color: stock.col}}>{stock.sign}{stock.diff} ({stock.diffperc}%) <img src={stock.icon} width="30px"></img></h2> 
                 </div>
                 </div>
             </div>
