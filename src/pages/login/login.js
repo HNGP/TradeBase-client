@@ -29,6 +29,7 @@ export default function Login() {
                     user: res.user,
                 })
                 localStorage.setItem("auth-token", res.token);
+                localStorage.setItem("user-id", res.user.id);
                 history.push("/");
             } else {
                 res.msg && setError(res.msg);

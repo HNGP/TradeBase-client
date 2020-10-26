@@ -19,9 +19,12 @@ const App = () => {
   useEffect(() => {
     const checkLoggedIn = async () => {
       let token = localStorage.getItem("auth-token");
+      let user = localStorage.getItem("user-id");
       if(token === null) {
         localStorage.setItem("auth-token","");
+        localStorage.setItem("user-id","");
         token = "";
+        user = "";
       }
       const tokenRes = await fetch('http://localhost:3000/tokenValid', {
         method: 'post',

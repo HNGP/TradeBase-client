@@ -23,6 +23,7 @@ const Header = () => {
       user: undefined,
     })
     localStorage.setItem("auth-token", "");
+    localStorage.setItem("user-id", "");
   }
 
   const handleScroll = (event) => {

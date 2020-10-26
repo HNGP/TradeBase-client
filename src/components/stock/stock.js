@@ -30,6 +30,21 @@ const Stock = () => {
     const Search = () => {
         fetchAPI(search.sym);
     }
+    const Add = async() => {
+        let symb = stock.symbol;
+        let user = localStorage.getItem("user-id");
+        const pi = await fetch('http://localhost:3000/pinStock', {
+            method: 'post',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify({
+                symbol: symb,
+                user: user
+            })
+        })
+            const pinn = await pi.json();
+            console.log(pinn);
+    }
+
     const fetchAPI = (symbol) => {
         const APIkey = 'CDUD0KP1O9WAG6CO';
         let API_CALL = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&apikey=${APIkey}&symbol=${symbol}`;
@@ -82,6 +97,7 @@ const Stock = () => {
             <div className="SubView">
             <input class="search" type="text" placeholder="Search for a stock" onChange={(e) => setSearch({sym: e.target.value})}></input>
             <button onClick={Search}><img src={searchIcon} width="30px"></img></button>
+            <button onClick={Add}>Add to Watchlist</button>
             </div>
             <div className="SubView1">
             
