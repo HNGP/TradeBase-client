@@ -10,7 +10,16 @@ ul{
     box-shadow:  20px 20px 60px #d9d9d9, 
                 -20px -20px 60px #ffffff;
     transition: 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+    padding-top: 50px;
 }
+
+.Pinner{
+     margin-left: 800px;
+     margin-top: -20px;
+     margin-bottom: -10px;
+     
+}
+
 
 .SubView1{
     display: grid;
@@ -60,7 +69,7 @@ input{
   
 
 
-button{
+/* button{
     border: none;
     background-color: white;
     margin-left: -100px;
@@ -68,5 +77,5 @@ button{
 
 
 }
-
+ */
 

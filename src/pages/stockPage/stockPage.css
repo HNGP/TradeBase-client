@@ -6,11 +6,16 @@
   } 
   
   .CardGroup{
-    margin: 50px auto;
+
     display: grid;
-    padding: 150px 40px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 50px;
+    padding: 50px 100px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+  }
+
+  .NewsH1{
+    padding-left: 100px;
+    margin-bottom: -20px;
   }
   
   @media (max-width: 720px){
@@ -21,3 +26,17 @@
   
   }
 
+
+button{
+  border: none;
+  background-color: white;
+}
+
+
+  @media (max-width: 1390px){
+  
+    .CardGroup{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+  }

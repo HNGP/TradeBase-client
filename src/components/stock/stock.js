@@ -3,15 +3,16 @@ import PropTypes from "prop-types"
 import Graph from "../../components/graph/graph"
 import Plot from 'react-plotly.js';
 import './stock.css'
-import searchIcon from './search.png'
 import up from './up.png'
 import down from './down.png'
+import pin from './pin.png'
 
-const Stock = () => {
+
+const Stock = ({ ticker }) => {
     const [stock, setStock] = useState({
         stockChartX: [],
         stockChartY: [],
-        symbol: '',
+        symbol: ticker,
         company: '',
         exc: '',
         diff: '',
@@ -19,17 +20,15 @@ const Stock = () => {
         diffperc: '',
         sign: ''
     })
-    const [search, setSearch] = useState({
-        sym: undefined
-    });
+   
 
     useEffect(() => {
-        fetchAPI('NFLX');
-    }, []);
+        fetchAPI(ticker);
+    }, [ticker]);
+
+
+
         
-    const Search = () => {
-        fetchAPI(search.sym);
-    }
     const Add = async() => {
         let symb = stock.symbol;
         let user = localStorage.getItem("user-id");
@@ -47,8 +46,8 @@ const Stock = () => {
 
     const fetchAPI = (symbol) => {
         const APIkey = 'CDUD0KP1O9WAG6CO';
-        let API_CALL = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&apikey=${APIkey}&symbol=${symbol}`;
-        let API_CALL1 = `https://www.alphavantage.co/query?function=OVERVIEW&apikey=${APIkey}&symbol=${symbol}`;
+        let API_CALL = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&apikey=${APIkey}&symbol=${ticker}`;
+        let API_CALL1 = `https://www.alphavantage.co/query?function=OVERVIEW&apikey=${APIkey}&symbol=${ticker}`;
         
         let stockX = [];
         let stockY = [];
@@ -90,14 +89,15 @@ const Stock = () => {
             
             })
 
+
     }
+    
+    
     return (
         <div className="chart">
             <div className="View">
             <div className="SubView">
-            <input class="search" type="text" placeholder="Search for a stock" onChange={(e) => setSearch({sym: e.target.value})}></input>
-            <button onClick={Search}><img src={searchIcon} width="30px"></img></button>
-            <button onClick={Add}>Add to Watchlist</button>
+            <h3 className="Pinner"><button onClick={Add}><img src={pin} height="50px"></img></button></h3>
             </div>
             <div className="SubView1">
             
@@ -110,6 +110,7 @@ const Stock = () => {
                 <h1 className="Price"> {stock.price} {stock.curr}</h1>
                 <div className="PriceGroup2">
                 <h2 style={{color: stock.col}}>{stock.sign}{stock.diff} ({stock.diffperc}%) <img src={stock.icon} width="30px"></img></h2> 
+                
                 </div>
                 </div>
             </div>
@@ -159,6 +160,10 @@ const Stock = () => {
                 }
             }}
           />  
+
+          <div className="cardGroupMain">
+            
+          </div>
           </div>
         
         );

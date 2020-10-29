@@ -1,0 +1,56 @@
+.Card{
+    width: 400px;
+    height: 350px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    box-shadow:  11px 11px 22px #d9d9d9, 
+                -11px -11px 22px #ffffff;
+    transition: 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+    background: #ffffff;
+    background-size: 400px 200px;
+    background-repeat: no-repeat;
+    
+}
+
+
+
+
+.Card:hover{
+    transform: scale(1.1, 1.1);
+    box-shadow: 9px 9px 16px #d9d9d9,
+    -9px -9px 16px #ffffff;
+    box-shadow:  21px 21px 42px #d9d9d9, 
+                -21px -21px 42px #ffffff;
+}
+
+.Card:hover background{
+    transform: translateY(-20px);
+    height: 110%;
+    
+}
+
+.Card h2{
+    font-size: 25px;
+    margin-top: 190px;
+    padding: 25px;
+
+    width: 360px;
+
+}
+.Card p{
+    margin-top: -25%;
+    padding: 25px 25px 25px;
+    width: 400px;
+    line-height: 1.2;
+    overflow: hidden;
+      display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+}
+
+
+@media (max-width:720px){
+   
+}
