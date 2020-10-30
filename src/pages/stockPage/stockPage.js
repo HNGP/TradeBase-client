@@ -12,11 +12,16 @@ import './stockPage.css'
 export default function Stockpage() {
     const { userData, setUserData } = useContext(UserContext);
     const [ticker, setTicker] = useState("AAPL");
+    const [time, setTime] = useState("Intraday");
+    const [name, setName] = useState("Apple Inc");
     const [index, setIndex] = useState("4");
    
     const handleSearch = (ticker) => {
         setTicker(ticker);
   };
+  const handleName = (input) => {
+    setName(input);
+};
 
 
     return (
@@ -25,9 +30,10 @@ export default function Stockpage() {
         <div className="Content">
             <div className="jumbotron">
            <SearchBar handleSearch={handleSearch} />
-            {/* <button onClick={Search}><img src={searchIcon} width="30px"></img>GO</button> */}
+            <button onClick={() => {setTime("Daily")}}>Daily</button>
+            <button onClick={() => {setTime("Intraday")}}>Intraday</button>
            
-            <Stock ticker={ticker}/>
+            <Stock ticker={ticker} time={time} handleName={handleName}/>
             </div>
 
             <h1 className="NewsH1">Relevant news:</h1>

@@ -1,4 +1,4 @@
-.Card{
+.PinCard{
     width: 400px;
     height: 300px;
     border-radius: 20px;
@@ -11,7 +11,7 @@
     background: #ffffff
 }
 
-.Card:hover{
+.PinCard:hover{
     transform: scale(1.1, 1.1);
     box-shadow: 9px 9px 16px #d9d9d9,
     -9px -9px 16px #ffffff;
@@ -20,19 +20,19 @@
 
 }
 
-.Card h1{
+.PinCard h1{
     font-size: 100px;
  
     padding-left: 30px;
 }
 
-.Card h2{
+.PinCard h2{
     font-size: 40px;
     margin-top: -70px;
     padding-left: 40px;
 }
 
-.Card h3{
+.PinCard h3{
     margin-top: -40px;
     padding-left: 40px;
     color: red;
@@ -41,7 +41,7 @@
 
 
 @media (max-width: 720px){
-    .Card{
+    .PPinCard{
         width: 450px;
         height: 225px;
     

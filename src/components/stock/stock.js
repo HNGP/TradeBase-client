@@ -8,23 +8,39 @@ import down from './down.png'
 import pin from './pin.png'
 
 
-const Stock = ({ ticker }) => {
+const Stock = ({ ticker, time, handleName }) => {
     const [stock, setStock] = useState({
         stockChartX: [],
         stockChartY: [],
         symbol: ticker,
-        company: '',
-        exc: '',
         diff: '',
         curr: '',
         diffperc: '',
         sign: ''
     })
+    const [detail, setDetail] = useState({
+        company: '',
+        exc: '',
+        curr: ''
+    })
    
 
     useEffect(() => {
-        fetchAPI(ticker);
-    }, [ticker]);
+        fetchAPI(ticker,time);
+        const API = 'CDUD0KP1O9WAG6CO';
+        let API_CALL1 = `https://www.alphavantage.co/query?function=OVERVIEW&apikey=${API}&symbol=${ticker}`;
+        fetch(API_CALL1)
+            .then(response => response.json())
+            .then(data => {
+                setDetail({
+                    company: data['Name'],
+                    exc: data['Exchange'],
+                    curr: data['Currency'],
+                })
+                            
+        })
+        handleName(detail.company);
+    }, [ticker,time]);
 
 
 
@@ -44,52 +60,80 @@ const Stock = ({ ticker }) => {
             console.log(pinn);
     }
 
-    const fetchAPI = (symbol) => {
-        const APIkey = 'CDUD0KP1O9WAG6CO';
-        let API_CALL = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&apikey=${APIkey}&symbol=${ticker}`;
-        let API_CALL1 = `https://www.alphavantage.co/query?function=OVERVIEW&apikey=${APIkey}&symbol=${ticker}`;
-        
-        let stockX = [];
-        let stockY = [];
-        let diff;
-        let diffperc;
-        let price;
-        let companyInfo;
-        let exchange;
-        let col;
-        let icon;
+    const fetchAPI = (symbol,a) => {
+        if(a==="Daily") {
+            const APIkey = 'CDUD0KP1O9WAG6CO';
+            let API_CALL = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&apikey=${APIkey}&symbol=${ticker}`;
+            
+            let stockX = [];
+            let stockY = [];
+            let diff;
+            let diffperc;
+            let price;
+            let companyInfo;
+            let exchange;
+            let col;
+            let icon;
+    
+            fetch(API_CALL)
+                .then(response => response.json())
+                .then(data => {
+                    for (var key in data['Time Series (Daily)']) {
+                        stockX.push(key);
+                        stockY.push(data['Time Series (Daily)'][key]['4. close']);
+                      
+                    }
+                    setStock({
+                        stockChartX: stockX,
+                        stockChartY: stockY,
+                        symbol: symbol,
+                        price: parseFloat(stockY[0]).toFixed(2),
+                        diff: Math.abs(stockY[0]-stockY[1]).toFixed(2),
+                        sign: stockY[0]-stockY[1]>0 ? '+' : '-',
+                        diffperc: Math.abs((((stockY[0]-stockY[1])/stockY[1])*100).toFixed(2)),
+                        col: stockY[0]-stockY[1]>=0 ? "green" : "red",
+                        icon: stockY[0]-stockY[1]>=0 ? up : down,
+                    });    
+                })
+        } else if(a==="Intraday") {
+            const APIkey = 'CDUD0KP1O9WAG6CO';
+            let API_CALL = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&interval=30min&apikey=${APIkey}&symbol=${ticker}`;
+            
+            let stockX = [];
+            let stockY = [];
+            let diff;
+            let diffperc;
+            let price;
+            let companyInfo;
+            let exchange;
+            let col;
+            let icon;
 
-        fetch(API_CALL)
-            .then(response => response.json())
-            .then(data => {
-                for (var key in data['Time Series (Daily)']) {
-                    stockX.push(key);
-                    stockY.push(data['Time Series (Daily)'][key]['4. close']);
-                  
-                }
-                fetch(API_CALL1)
-                    .then(response => response.json())
-                    .then(data => {
-                        setStock({
-                            stockChartX: stockX,
-                            stockChartY: stockY,
-                            symbol: symbol,
-                            company: data['Name'],
-                            exc: data['Exchange'],
-                            curr: data['Currency'],
-                            price: parseFloat(stockY[0]).toFixed(2),
-                            diff: Math.abs(stockY[0]-stockY[1]).toFixed(2),
-                            sign: stockY[0]-stockY[1]>0 ? '+' : '-',
-                            diffperc: Math.abs((((stockY[0]-stockY[1])/stockY[1])*100).toFixed(2)),
-                            col: stockY[0]-stockY[1]>=0 ? "green" : "red",
-                            icon: stockY[0]-stockY[1]>=0 ? up : down,
-                        });
+            fetch(API_CALL)
+                .then(response => response.json())
+                .then(data => {
+                    for (var key in data['Time Series (30min)']) {
+                        stockX.push(key);
+                        stockY.push(data['Time Series (30min)'][key]['4. close']);
+                    
+                    }
+                    setStock({
+                        stockChartX: stockX,
+                        stockChartY: stockY,
+                        symbol: symbol,
+                        price: parseFloat(stockY[0]).toFixed(2),
+                        diff: Math.abs(stockY[0]-stockY[1]).toFixed(2),
+                        sign: stockY[0]-stockY[1]>0 ? '+' : '-',
+                        diffperc: Math.abs((((stockY[0]-stockY[1])/stockY[1])*100).toFixed(2)),
+                        col: stockY[0]-stockY[1]>=0 ? "green" : "red",
+                        icon: stockY[0]-stockY[1]>=0 ? up : down,
+                    });
                 
                 })
-            
-            })
 
 
+        }
+        
     }
     
     
@@ -103,11 +147,11 @@ const Stock = ({ ticker }) => {
             
             <div className="textGroup2">
             <h1>{stock.symbol}</h1>
-            <p>{stock.company}</p>
-            <p>{stock.exc}</p>
+            <p>{detail.company}</p>
+            <p>{detail.exc}</p>
             </div>
             <div className="PriceGroup">
-                <h1 className="Price"> {stock.price} {stock.curr}</h1>
+                <h1 className="Price"> {stock.price} {detail.curr}</h1>
                 <div className="PriceGroup2">
                 <h2 style={{color: stock.col}}>{stock.sign}{stock.diff} ({stock.diffperc}%) <img src={stock.icon} width="30px"></img></h2> 
                 

@@ -29,7 +29,7 @@ export default function Landing() {
     return (
         <div className = "content">
 
-        <div class="CardGroupMain">
+        <div className="CardGroupMain">
             {title}
             
         </div>
