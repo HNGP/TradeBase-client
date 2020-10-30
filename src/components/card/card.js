@@ -4,6 +4,7 @@ import './card.css'
 const Card = props => {
 
     const [stock, setStock] = useState({
+        title: '',
         curr: '',
         price: '',
         diff: '',
@@ -35,6 +36,7 @@ const Card = props => {
                     .then(response => response.json())
                     .then(data => {
                         setStock({
+                            title: props.title,
                             curr: data['Currency'],
                             price: parseFloat(stockY[0]).toFixed(2),
                             diff: Math.abs(stockY[0]-stockY[1]).toFixed(2),
@@ -51,12 +53,13 @@ const Card = props => {
 
     return (
     <div className="Card">
-        <h1>{props.title}</h1>
+        <h1>{stock.title}</h1>
         <h2>{stock.price}{stock.curr}</h2>
         <h3 style={{color: stock.col}}>{stock.sign}{stock.diff}({stock.diffperc})</h3>
 
     </div>
     );
 }
+
 
 export default Card
