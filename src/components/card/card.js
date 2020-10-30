@@ -13,13 +13,13 @@ const Card = props => {
     });
     
     useEffect(()=>{
-        fetchApi();
+        fetchApi(props.title);
     },[]);
 
-    const fetchApi = () => {
+    const fetchApi = (title) => {
         const APIkey = 'CDUD0KP1O9WAG6CO';
-        let API_CALL = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&apikey=${APIkey}&symbol=${props.title}`;
-        let API_CALL1 = `https://www.alphavantage.co/query?function=OVERVIEW&apikey=${APIkey}&symbol=${props.title}`;
+        let API_CALL = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&apikey=${APIkey}&symbol=${title}`;
+        let API_CALL1 = `https://www.alphavantage.co/query?function=OVERVIEW&apikey=${APIkey}&symbol=${title}`;
         let stockX = [];
         let stockY = [];
 
