@@ -26,10 +26,21 @@
   
   }
 
+.ButtonGroup{
+  padding-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: -50px;
+  
+}
+
 
 button{
   border: none;
   background-color: white;
+  font-size: 20px;
+  color: #1552F0;
+  
 }
 
 

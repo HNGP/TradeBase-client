@@ -30,10 +30,12 @@ export default function Stockpage() {
         <div className="Content">
             <div className="jumbotron">
            <SearchBar handleSearch={handleSearch} />
-            <button onClick={() => {setTime("Daily")}}>Daily</button>
-            <button onClick={() => {setTime("Intraday")}}>Intraday</button>
-           
+            <div className="ButtonGroup"> 
+                <button onClick={() => {setTime("Daily")}}>DAILY</button>
+                <button onClick={() => {setTime("Intraday")}}>HOURLY</button>
+            </div>
             <Stock ticker={ticker} time={time} handleName={handleName}/>
+           
             </div>
 
             <h1 className="NewsH1">Relevant news:</h1>

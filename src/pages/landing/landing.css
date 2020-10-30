@@ -1,7 +1,10 @@
 .CardGroupMain{
     display: grid;
-    padding: 200px ;
+    
     grid-template-columns: repeat(3, auto);
     grid-gap: 50px;
+}
 
+.content-hero{
+    padding: 150px;
 }

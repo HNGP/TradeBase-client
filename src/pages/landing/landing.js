@@ -27,8 +27,8 @@ export default function Landing() {
     }
 
     return (
-        <div className = "content">
-
+        <div className = "content-hero">
+            <h1>Your Watchlist</h1>
         <div className="CardGroupMain">
             {title}
             
