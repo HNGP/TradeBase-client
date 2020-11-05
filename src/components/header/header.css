@@ -29,6 +29,9 @@
     font-weight: 300;
 }
 
+.Header h2:hover{
+   cursor: pointer;
+}
 
 .Header a {
     text-decoration: none;
@@ -37,6 +40,11 @@
     color: #1552F0;
     padding-left: 20px;
 }
+
+.Header a:hover {
+    cursor: pointer;
+}
+
 
 @media (max-width: 640px){
     .Header{

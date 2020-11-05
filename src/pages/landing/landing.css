@@ -8,3 +8,39 @@
 .content-hero{
     padding: 150px;
 }
+
+.content-bg{
+    padding-top: 150px;
+}
+
+.brand{
+    margin-top: -68px;
+    font-size: 80px;
+    font-weight: 600;
+}
+
+.content-bg h2{
+    padding-left: 150px;
+    font-size: 80px;
+    font-weight: 200;
+}
+
+.content-bg h1{
+    padding-left: 150px;
+    font-size: 80px;
+    width: 600px;
+}
+
+.content-bg svg {
+    margin-top: -220px;
+}
+
+.content-bg p{
+    width: 500px;
+    padding-left: 150px;
+    color: #6684D1;
+}
+
+.content-bg button{
+    padding-left: 150px;
+}
