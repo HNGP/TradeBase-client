@@ -1,0 +1,36 @@
+.content-hero{
+    padding: 150px;
+}
+
+
+.content-hero p{
+    font-size: 24;
+    line-height: 1.2;
+}
+
+.cardgrp{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 50px;
+    
+}
+
+.card {
+    width: 600px;
+    height: 150px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    box-shadow:  11px 11px 22px #d9d9d9, 
+                -11px -11px 22px #ffffff;
+    transition: 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+    background: #ffffff;
+    padding: 50px;
+}
+
+.card h1{
+     margin-top: -10px;
+    margin-bottom: 10px;
+}
+

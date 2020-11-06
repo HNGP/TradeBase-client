@@ -6,6 +6,7 @@ import Register from "./pages/register/register"
 import Landing from "./pages/landing/landing"
 import Stockpage from "./pages/stockPage/stockPage"
 import UserContext from './context/userContext'
+import About from './pages/about/about'
 import './index.css'
 
 
@@ -61,6 +62,7 @@ const App = () => {
               
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
+              <Route path="/about" component={About}/>
             
             </Switch>
           </div>

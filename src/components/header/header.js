@@ -47,11 +47,12 @@ const Header = () => {
         <h2 onClick={home}>tradebase</h2>
         {userData.token ? (
         <div className="HeaderGroup2">
+          <a onClick={about}>About</a>
           <a onClick={stock}>Stocks</a>
-          <a onClick={stock}>About</a>
           <a onClick={logout}>Logout</a>
           </div>):(
         <div className="HeaderGroup2">
+          <a onClick={about}>About</a>
           <a onClick={register}>Register</a>
           <a onClick={login}>Login</a>
         </div>

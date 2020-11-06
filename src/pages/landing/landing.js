@@ -5,7 +5,9 @@ import UserContext from '../../context/userContext'
 import './landing.css'
 import bg from './bg.png'
 
+
 export default function Landing() {
+  
     const { userData, setUserData } = useContext(UserContext);
     const history = useHistory();
     const login = () => history.push("/login");
@@ -49,11 +51,9 @@ export default function Landing() {
                 Tradebase let's you search and monitor thousands of stocks, explore news, and pin them to your watchlist with ease and a intuitive, fluid  user interface.
                 <br></br><br></br>Catching up with Wall Street hasn't been simpler.
             </p>
-            <button onClick={login}>LOG IN TO CONTINUE</button>
-            
-            
-            
-            <svg width="100%" height="768" viewBox="0 0 768" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a onClick={login}>LOG IN TO CONTINUE</a>
+        
+            <svg width="100%" height="768" viewBox="0 0 1440 768" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill="url(#paint0_linear)">
             {/* <path d="M-46.0006 951.16L-46.2515 960.716M-215.482 579.431C-149.094 454.575 -99.3499 443.622 -66.2499 546.571C-20.6917 695.608 29.0522 684.655 82.9818 513.711C139.115 342.283 188.859 331.33 232.214 480.852C294.134 703.23 343.878 692.277 381.445 447.992C421.419 203.177 471.163 192.224 530.677 415.132C568.82 550.265 618.564 539.311 679.909 382.272C739.305 225.662 789.049 214.709 829.14 349.412C896.747 590.515 946.491 579.561 978.372 316.553C1014.15 52.6855 1063.89 41.7322 1127.6 283.693C1174.68 456.811 1224.42 445.858 1276.84 250.833C1327.84 56.1186 1377.59 45.1653 1426.07 217.973C1487.36 441.97 1537.1 431.017 1575.3 185.113L1540.51 759.954L-221.312 801.5L-215.482 579.431Z" stroke="white" stroke-width="2"/> */}
             <animate repeatCount="indefinite" attributeName="d" fill="blue" dur="10s" values="
@@ -69,12 +69,6 @@ export default function Landing() {
             </defs>
             </svg>
             
-
-
-
-
-
-      
         </div>
         )}
 

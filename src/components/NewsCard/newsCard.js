@@ -10,6 +10,10 @@ const News = props => {
         image: '',
         site:''
     });
+
+    // const newsSite = (site) => {
+    //     window.location.href = {site};
+    // };
     
     useEffect(()=>{
         fetchApi(props.ticker);
