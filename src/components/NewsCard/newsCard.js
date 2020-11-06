@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { useHistory } from "react-router-dom";
 import './newsCard.css'
 
 // SAMPLE API RESPONSE FOR JSON REF = http://newsapi.org/v2/everything?q=Netflix&apiKey=b605c07e7c444457a1b10d45f41beeb5&pageSize=5
@@ -10,6 +11,8 @@ const News = props => {
         image: '',
         site:''
     });
+
+    const history = useHistory();
 
     // const newsSite = (site) => {
     //     window.location.href = {site};
@@ -46,7 +49,7 @@ const News = props => {
 
     return (
     <div className="Card" style = {{backgroundImage: `url(${newsCard.image})` }}>
-        <h2>{newsCard.headline.slice(0, 101)}</h2>
+        <a href={newsCard.site} target="_blank"><h2>{newsCard.headline.slice(0, 101)}</h2></a>
         
     </div>
     );

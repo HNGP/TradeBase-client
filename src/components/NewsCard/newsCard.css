@@ -50,6 +50,11 @@
   -webkit-box-orient: vertical;  
 }
 
+.Card a {
+    color: #1552F0;
+    text-decoration: none;
+}
+
 
 @media (max-width:720px){
    

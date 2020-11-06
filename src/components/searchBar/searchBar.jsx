@@ -22,7 +22,7 @@ const SearchBar = ({ handleSearch }) => {
           type="text"
           value={inputValue}
           onChange={(e) =>
-            e.target.value.length <= 5
+            e.target.value.length <= 15
               ? setInputValue(e.target.value.toUpperCase())
               : setInputValue(inputValue)
           }
