@@ -2,6 +2,8 @@
 # Tradebase (Client)
 Front-end repo for a MERN Stack based web-app to watch stocks.
 
+Production build: https://tradebase.herokuapp.com/
+
 Server End Repo: https://github.com/HNGP/TradeBase-API
 
 <br>
